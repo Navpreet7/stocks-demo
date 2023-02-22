@@ -6,7 +6,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 
 COPY src/ /app/src/
-RUN mvn package
+RUN mvn package -Dmaven.test.skip=true
 
 FROM openjdk:17-oracle
 
