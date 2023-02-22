@@ -1,4 +1,5 @@
 # DowJonesIndex
+
 DowJonesIndex
 
 # Welcome to the RBC Coding challenge!
@@ -9,9 +10,9 @@ DowJonesIndex
 
     As a programmer with a fascination for stock markets, you got excited about a new data set that you discovered
 
-    that there is a collection of records from the [Dow Jones Index from 2011](http://archive.ics.uci.edu/ml/datasets/Dow+Jones+Index#) that caught your attention. 
+    that there is a collection of records from the [Dow Jones Index from 2011](http://archive.ics.uci.edu/ml/datasets/Dow+Jones+Index#) that caught your attention.
 
- 
+
     You decided you'd like to build an application server (Spring Boot) that would allow multiple users to perform the following operations concurrently:
 
         - upload a bulk data set
@@ -32,20 +33,19 @@ DowJonesIndex
 
     Some aspects of this challenge have been left intentionally vague.  Have fun! Build a solution you would be proud to show off :)
 
-
 ## Usage
 
     - mvn clean package
     - docker-compose up -d
 
     - goto http://localhost:8080/swagger-ui/index.html
-    
+
     OR
-    
-    - curl -F "file=@dow_jones_index.data" -H "X-Client_Id: abc123" http://127.0.0.1:8080/api/stock-data/bulk-insert 
+
+    - curl -L -X POST 'http://127.0.0.1:8080/api/stock-data/bulk-insert' -H 'X-Client_Id: abc123' -F 'file=@"dow_jones_index.data"'
     - curl -H "X-Client_Id: abc123" http://127.0.0.1:8080/api/stock-data/AA
     - curl -H "Content-Type: application/json" -H "X-Client_Id: abc123" -X POST -d @dow_jones_missing.json http://127.0.0.1:8080/api/stock-data/
 
-    OR 
-    
+    OR
+
     - Import postman collection locally -> demoCollection.postman_collection.json
