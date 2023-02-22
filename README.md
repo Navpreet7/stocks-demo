@@ -2,10 +2,6 @@
 
 DowJonesIndex
 
-# Welcome to the RBC Coding challenge!
-
-    Please timebox your efforts to 2 - 4 hours for the following challenge.
-
 ## Problem Background
 
     As a programmer with a fascination for stock markets, you got excited about a new data set that you discovered
@@ -29,13 +25,10 @@ DowJonesIndex
 
     - The solution does not need to be perfect. Please complete what you deem necessary and prioritize accordingly. Most importantly, you should be prepared to discuss how you would potentially enhance the solution given more time, and decisions / tradeoffs that you made.
 
-## Final Thoughts
 
-    Some aspects of this challenge have been left intentionally vague.  Have fun! Build a solution you would be proud to show off :)
 
 ## Usage
 
-    - mvn clean package
     - docker-compose up -d
 
     - goto http://localhost:8080/swagger-ui/index.html

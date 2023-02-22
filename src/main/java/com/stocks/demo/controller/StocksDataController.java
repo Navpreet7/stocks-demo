@@ -22,8 +22,6 @@ import com.opencsv.exceptions.CsvValidationException;
 import com.stocks.demo.model.StockDetails;
 import com.stocks.demo.service.StocksService;
 
-
-
 @RestController
 @RequestMapping("/api/stock-data")
 
@@ -33,24 +31,25 @@ public class StocksDataController {
 	@Autowired
 	private StocksService stockService;
 
-	@PostMapping(value="/bulk-insert",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@PostMapping(value = "/bulk-insert", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<Object> uploadData(@RequestParam("file") MultipartFile file)
 			throws CsvValidationException, IOException {
+		// save file data
 		stockService.saveStocksFromFile(file);
-		return ResponseEntity.ok("File uploaded and data saved to database.");
+		return ResponseEntity.ok("Upload successful");
 	}
 
 	@PostMapping("/")
 	public ResponseEntity<Object> addStock(@RequestBody StockDetails stock) {
-
+		// create record of stock data
 		stockService.createStock(stock);
-		return ResponseEntity.ok("stock details saved to database.");
+		return ResponseEntity.ok("sucess");
 
 	}
 
 	@GetMapping("/{stock}")
 	public ResponseEntity<Object> getData(@PathVariable String stock) {
-
+		// fetch list of records corressponding to stock passed in path variable
 		List<StockDetails> list = stockService.getStockList(stock);
 		return new ResponseEntity<>(list, HttpStatus.OK);
 
